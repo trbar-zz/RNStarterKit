@@ -19,11 +19,23 @@
   "devDependencies": {
     "babel-jest": "23.4.0",
     "babel-preset-react-native": "^5",
+    "detox": "^8.0.0",
     "jest": "23.4.1",
     "react-native-dotenv": "^0.2.0",
     "react-test-renderer": "16.4.1"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/RNStarterKit.app",
+        "build": "xcodebuild -project ios/RNStarterKit.xcodeproj -scheme RNStarterKit -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone 6s"
+      }
+    },
+    "test-runner": "jest"
   }
 }
