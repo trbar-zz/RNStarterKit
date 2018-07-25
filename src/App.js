@@ -8,7 +8,7 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>{translations.t('home.homeScreen')}</Text>
+        <Text testID='homeText'>{translations.t('home.homeScreen')}</Text>
         <Icon name="rocket" size={30} color="#900" />
       </View>
     );
