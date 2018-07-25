@@ -1,12 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import initSentry from './utils/sentry';
+import { Sentry } from 'react-native-sentry';
+
+import { SENTRYURL } from './secrets';
 
 import App from './App';
 import store from './store'
 
 export default function createApp() {
-  initSentry()
+  Sentry.config(SENTRYURL).install();
     return (
       <Provider store={store}>
         <App />
