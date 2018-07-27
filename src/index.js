@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Sentry } from 'react-native-sentry';
 
-import { SENTRYURL } from './secrets';
+import { SENTRYURL } from './config/secrets';
 
 import App from './App';
 import store from './store'
