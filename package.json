@@ -11,6 +11,7 @@
     "react-native": "0.55.3",
     "react-native-i18n": "^2.0.15",
     "react-native-sentry": "^0.38.2",
+    "react-native-simple-auth": "^2.4.0",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.9.1",
     "react-redux": "^5.0.7",
