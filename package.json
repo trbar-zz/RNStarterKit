@@ -7,10 +7,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "lodash": "^4.17.10",
     "react": "16.3.1",
     "react-native": "0.55.3",
     "react-native-i18n": "^2.0.15",
+    "react-native-linear-gradient": "^2.4.0",
     "react-native-sentry": "^0.38.2",
+    "react-native-ui-kitten": "^3.0.1",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.9.1",
     "react-redux": "^5.0.7",
@@ -39,5 +42,10 @@
     },
     "test-runner": "jest",
     "runner-config": "e2e/config.json"
-  }
+  },
+  "rnpm": {
+		"assets": [
+			"./src/assets/fonts/"
+		]
+	}
 }
