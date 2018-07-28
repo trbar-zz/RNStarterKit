@@ -7,15 +7,12 @@
     "test": "jest"
   },
   "dependencies": {
-<<<<<<< HEAD
     "apollo-cache-inmemory": "^1.2.6",
     "apollo-client": "^2.3.7",
     "apollo-link": "^1.2.2",
     "apollo-link-http": "^1.5.4",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
-=======
->>>>>>> 5f5668eed995b649198b17a22dfbe2f99b7b9767
     "lodash": "^4.17.10",
     "react": "16.3.1",
     "react-apollo": "^2.1.9",
@@ -24,10 +21,7 @@
     "react-native-i18n": "^2.0.15",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-sentry": "^0.38.2",
-<<<<<<< HEAD
     "react-native-simple-auth": "^2.4.0",
-=======
->>>>>>> 5f5668eed995b649198b17a22dfbe2f99b7b9767
     "react-native-ui-kitten": "^3.0.1",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.9.1",
@@ -59,15 +53,8 @@
     "runner-config": "e2e/config.json"
   },
   "rnpm": {
-<<<<<<< HEAD
     "assets": [
       "./src/assets/fonts/"
     ]
   }
-=======
-		"assets": [
-			"./src/assets/fonts/"
-		]
-	}
->>>>>>> 5f5668eed995b649198b17a22dfbe2f99b7b9767
 }
