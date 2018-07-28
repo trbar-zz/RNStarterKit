@@ -53,8 +53,8 @@
     "runner-config": "e2e/config.json"
   },
   "rnpm": {
-		"assets": [
-			"./src/assets/fonts/"
-		]
-	}
+    "assets": [
+      "./src/assets/fonts/"
+    ]
+  }
 }
