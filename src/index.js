@@ -7,11 +7,30 @@ import { HttpLink } from 'apollo-link-http';
 import { ApolloLink, concat } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { GRAPHQL_URL } from './config/secrets'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
+import device from './store/device'
 
 import { SENTRYURL } from './config/secrets';
 
-import App from './App';
-import store from './store'
+import Navigator from './Navigator';
+
+const combinedReducer = combineReducers({
+  device
+})
+
+const middleware = [
+  thunk
+]
+
+const store = createStore(
+  combinedReducer,
+  composeWithDevTools(
+    applyMiddleware(...middleware)
+  )
+)
 
 const graphqlUrl = GRAPHQL_URL
 const httpLink = new HttpLink({ uri: graphqlUrl });
@@ -40,7 +59,7 @@ export default function createApp() {
     return (
       <ApolloProvider client={client}>
         <Provider store={store}>
-          <App />
+          <Navigator />
         </Provider>
       </ApolloProvider>
     );
