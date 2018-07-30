@@ -5,7 +5,7 @@ export const MainRoutes = [
     {
       id: 'Login',
       title: 'Login',
-      screen: Screens.LoginV1,
+      screen: Screens.Login,
       children: []
     },
     {

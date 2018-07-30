@@ -14,10 +14,13 @@ import {
   RkTheme
 } from 'react-native-ui-kitten';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from 'react-redux'
+
 import {GradientButton} from '../../components/gradientButton';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+import { facebookLoginSignup, googleLoginSignup2 } from '../../store/auth/authActions';
 
-export class LoginV1 extends React.Component {
+export class Login extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -52,13 +55,10 @@ export class LoginV1 extends React.Component {
         {image}
         <View style={styles.container}>
           <View style={styles.buttons}>
-            <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero accentColor'><Icon name={'twitter'} size={35}/></RkText>
-            </RkButton>
-            <RkButton style={styles.button} rkType='social'>
+            <RkButton style={styles.button} rkType='social' onPress={() => googleLoginSignup2()}>
               <RkText rkType='awesome hero accentColor'><Icon name={'google'} size={35}/></RkText>
             </RkButton>
-            <RkButton style={styles.button} rkType='social'>
+            <RkButton style={styles.button} rkType='social' onPress={() => facebookLoginSignup()}>
               <RkText rkType='awesome hero accentColor'><Icon name={'facebook'} size={35}/></RkText>
             </RkButton>
           </View>
@@ -81,6 +81,13 @@ export class LoginV1 extends React.Component {
     )
   }
 }
+
+export default connect(
+  (state) => ({
+    auth: state.auth,
+    device: state.device
+  })
+)(Login)
 
 let styles = RkStyleSheet.create(theme => ({
   screen: {
