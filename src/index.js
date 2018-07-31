@@ -10,7 +10,7 @@ import { GRAPHQL_URL } from './config/secrets'
 
 import { SENTRYURL } from './config/secrets';
 
-import App from './App';
+import Navigator from './Navigator';
 import store from './store'
 
 const graphqlUrl = GRAPHQL_URL
@@ -40,7 +40,7 @@ export default function createApp() {
     return (
       <ApolloProvider client={client}>
         <Provider store={store}>
-          <App />
+          <Navigator />
         </Provider>
       </ApolloProvider>
     );
