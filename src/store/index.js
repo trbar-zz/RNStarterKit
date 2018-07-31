@@ -1,21 +1,25 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import {
+  createReactNavigationReduxMiddleware,
+} from 'react-navigation-redux-helpers';
 import device from './device'
+import auth from './auth/authReducer'
+import navigation from './navigation/navigationReducer'
+
+//had to create the middleware in the Navigator as it must be declared
+//before the addlistener call
+import { middleware } from '../Navigator'
 
 const combinedReducer = combineReducers({
-  device
+  navigation,
+  device,
+  auth
 })
-
-const middleware = [
-  thunk
-]
 
 const store = createStore(
   combinedReducer,
-  composeWithDevTools(
-    applyMiddleware(...middleware)
-  )
+  applyMiddleware(middleware, thunk)
 )
 
 export default store
