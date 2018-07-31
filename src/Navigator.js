@@ -18,13 +18,17 @@ const addListener = createReduxBoundAddListener("root");
 import Home from './screens/Home'
 import Login from './screens/Login'
 import Splash from './screens/Splash'
+import Signup from './screens/Signup'
+import Login2 from './screens/Login2'
 
 export const Navigator = new StackNavigator({
   Home: { screen: Home },
   Login: { screen: Login },
-  Splash: { screen: Splash }
+  Splash: { screen: Splash },
+  Signup: { screen: Signup },
+  Login2: { screen: Login2 }
 },{
-  initialRouteName: 'Splash',
+  initialRouteName: 'Login2',
 })
 
 class Nav extends Component {

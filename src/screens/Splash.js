@@ -30,7 +30,7 @@ export default class Splash extends React.Component {
 
   componentDidMount() {
     StatusBar.setHidden(true, 'none');
-    RkTheme.setTheme(KittenTheme);
+    RkTheme.setTheme(RNStarterKitTheme);
 
     this.timer = setInterval(() => {
       if (this.state.progress == 1) {
@@ -56,7 +56,7 @@ export default class Splash extends React.Component {
     return (
       <View style={styles.container}>
         <View>
-          <Image style={[styles.image, {width}]} source={require('../../assets/images/splashBack.png')}/>
+          <Image style={[styles.image, {width}]} source={require('../assets/images/splashBack.png')}/>
           <View style={styles.text}>
             <RkText rkType='light' style={styles.hero}>React Native</RkText>
             <RkText rkType='header0'>RNStaterKit UI Kitten</RkText>
@@ -73,7 +73,7 @@ export default class Splash extends React.Component {
 
 let styles = StyleSheet.create({
   container: {
-    backgroundColor: KittenTheme.colors.screen.base,
+    backgroundColor: RNStarterKitTheme.colors.screen.base,
     justifyContent: 'space-between',
     flex: 1
   },

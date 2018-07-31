@@ -52,6 +52,10 @@ class Login extends React.Component {
           title="Google Login"
           onPress={() => this.onGoogleLoginButtonPress()}
         />
+        <Button
+          title="Go to Splash View"
+          onPress={() => this.props.navigation.navigate('Splash')}
+        />
       </View>
     );
   }

@@ -1,4 +1,7 @@
 export default InitialState = {
   isFetching: false,
-  result: null
+  error: null,
+  authToken: null,
+  hasuraId: null,
+  profile: null
 };

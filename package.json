@@ -50,5 +50,10 @@
     },
     "test-runner": "jest",
     "runner-config": "e2e/config.json"
+  },
+  "rnpm": {
+    "assets": [
+      "./src/assets/fonts/"
+    ]
   }
 }
