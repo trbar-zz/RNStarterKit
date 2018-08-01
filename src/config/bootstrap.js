@@ -4,6 +4,9 @@ import {
 } from 'react-native';
 import { RkTheme } from 'react-native-ui-kitten';
 import { RNStarterKitTheme } from './theme';
+import {AvatarTypes} from '../components/Avatar/types';
+import {SocialBarTypes} from '../components/SocialBar/types'
+import {SwitchTypes} from '../components/Switch/types'
 import {scale, scaleModerate, scaleVertical} from '../utils/scale';
 
 export let bootstrap = () => {
@@ -481,6 +484,9 @@ export let bootstrap = () => {
   /*
    Register components
    */
+   RkTheme.registerComponent('Avatar', AvatarTypes);
+   RkTheme.registerComponent('SocialBar', SocialBarTypes);
+   RkTheme.registerComponent('Switch', SwitchTypes)
 
   StatusBar.setBarStyle('dark-content', true);
 };

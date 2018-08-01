@@ -39,7 +39,7 @@ class Login2 extends React.Component {
 
   componentWillReceiveProps(nextprops) {
     if (nextprops.auth.authToken) {
-      this.props.navigation.navigate('Home')
+      this.props.navigation.navigate('Feed')
     }
   }
 

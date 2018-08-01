@@ -10,7 +10,8 @@ import {
   RkText,
   RkTheme
 } from 'react-native-ui-kitten'
-import ProgressBar from '../components/ProgressBar';
+import { connect } from 'react-redux';
+import ProgressBar from '../components/progressBar';
 import {
   RNStarterKitTheme
 } from '../config/theme';
@@ -19,7 +20,7 @@ import { scale, scaleModerate, scaleVertical } from '../utils/scale';
 
 let timeFrame = 500;
 
-export default class Splash extends React.Component {
+class Splash extends React.Component {
 
   constructor(props) {
     super(props);
@@ -37,7 +38,7 @@ export default class Splash extends React.Component {
         clearInterval(this.timer);
         setTimeout(() => {
           StatusBar.setHidden(false, 'slide');
-          this.props.navigation.navigate('Login')
+          this.props.navigation.navigate('Login2')
         }, timeFrame);
       } else {
         let random = Math.random() * 0.5;
@@ -62,14 +63,16 @@ export default class Splash extends React.Component {
             <RkText rkType='header0'>RNStaterKit UI Kitten</RkText>
           </View>
         </View>
-        <ProgressBar
-          color={RkTheme.current.colors.accent}
-          style={styles.progress}
-          progress={this.state.progress} width={scale(320)}/>
       </View>
     )
   }
 }
+
+export default connect(
+  (state) => ({
+    auth: state.auth,
+  })
+)(Splash)
 
 let styles = StyleSheet.create({
   container: {

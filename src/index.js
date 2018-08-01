@@ -8,6 +8,7 @@ import { ApolloLink, concat } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { GRAPHQL_URL } from './config/secrets'
 import { bootstrap } from './config/bootstrap';
+import { data } from './data';
 
 import { SENTRYURL } from './config/secrets';
 
@@ -15,6 +16,7 @@ import Navigator from './Navigator';
 import store from './store'
 
 bootstrap();
+data.populateData();
 
 const graphqlUrl = GRAPHQL_URL
 const httpLink = new HttpLink({ uri: graphqlUrl });

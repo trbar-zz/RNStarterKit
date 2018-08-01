@@ -15,20 +15,24 @@ export const middleware = createReactNavigationReduxMiddleware(
 
 const addListener = createReduxBoundAddListener("root");
 
-import Home from './screens/Home'
+import Feed from './screens/Feed'
 import Login from './screens/Login'
 import Splash from './screens/Splash'
 import Signup from './screens/Signup'
 import Login2 from './screens/Login2'
+import Article from './screens/Article'
+import Settings from './screens/Settings'
 
 export const Navigator = new StackNavigator({
-  Home: { screen: Home },
+  Feed: { screen: Feed },
   Login: { screen: Login },
   Splash: { screen: Splash },
   Signup: { screen: Signup },
-  Login2: { screen: Login2 }
+  Login2: { screen: Login2 },
+  Article: { screen: Article },
+  Settings: { screen: Settings }
 },{
-  initialRouteName: 'Login2',
+  initialRouteName: 'Splash',
 })
 
 class Nav extends Component {

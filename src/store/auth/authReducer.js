@@ -12,7 +12,10 @@ import {
   FACEBOOK_LOGIN_SIGNUP_FAILURE,
   GOOGLE_LOGIN_SIGNUP_REQUEST,
   GOOGLE_LOGIN_SIGNUP_SUCCESS,
-  GOOGLE_LOGIN_SIGNUP_FAILURE
+  GOOGLE_LOGIN_SIGNUP_FAILURE,
+  LOGOUT_REQUEST,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILURE,
 } from './authActions'
 
 export default function authReducer(state = initialState, action) {
@@ -40,6 +43,7 @@ export default function authReducer(state = initialState, action) {
           isFetching: false,
           authToken: action.payload.serverParams.auth_token,
           hasuraId: action.payload.serverParams.hasura_id,
+          error: null,
           profile: {
             name: action.payload.googleParams.user.name,
             email: action.payload.googleParams.user.email,
@@ -54,6 +58,7 @@ export default function authReducer(state = initialState, action) {
           isFetching: false,
           authToken: action.payload.serverParams.auth_token,
           hasuraId: action.payload.serverParams.hasura_id,
+          error: null,
           profile: {
             name: action.payload.facebookParams.user.name,
             email: action.payload.facebookParams.user.email,
@@ -72,6 +77,36 @@ export default function authReducer(state = initialState, action) {
           profile: {
             email: action.payload.email
           }
+        }
+      }
+
+      case LOGOUT_REQUEST: {
+        return {
+          ...state,
+          isFetching: true,
+          authToken: null
+        }
+      }
+
+      case LOGOUT_FAILURE: {
+        return {
+          ...state,
+          isFetching: false,
+          error: action.payload,
+          authToken: null,
+          hasuraId: null,
+          profile: null
+        }
+      }
+
+      case LOGOUT_SUCCESS: {
+        return {
+          ...state,
+          isFetching: false,
+          error: null,
+          authToken: null,
+          hasuraId: null,
+          profile: null
         }
       }
   }

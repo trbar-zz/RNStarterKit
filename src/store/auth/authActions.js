@@ -19,6 +19,10 @@ export const GOOGLE_LOGIN_SIGNUP_REQUEST = 'GOOGLE_LOGIN_SIGNUP_REQUEST'
 export const GOOGLE_LOGIN_SIGNUP_SUCCESS = 'GOOGLE_LOGIN_SIGNUP_SUCCESS'
 export const GOOGLE_LOGIN_SIGNUP_FAILURE = 'GOOGLE_LOGIN_SIGNUP_FAILURE'
 
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST'
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE'
+
 export function emailPasswordLogin(email, password) {
   return async (dispatch) => {
     dispatch(emailPasswordLoginRequest())
@@ -220,6 +224,52 @@ export function emailPasswordSignupSuccess(response) {
 export function emailPasswordSignupFailure(error) {
   return {
     type: EMAIL_PASSWORD_SIGNUP_FAILURE,
+    payload: error,
+  }
+}
+
+export function logout() {
+  console.log('logout')
+  return async (dispatch) => {
+    dispatch(logoutRequest())
+    const logoutUrl = AUTH_URL + 'user/logout';
+    const options = {
+      'method': 'POST',
+      'headers': {
+        'Content-Type': 'application/json',
+      }
+    };
+    try {
+      const response = await fetch(logoutUrl, options);
+      const respObj = await response.json();
+      if (response.status !== 200) {
+        dispatch(logoutFailure(response))
+      }
+      dispatch(logoutSuccess(respObj))
+    } catch (e) {
+      dispatch(logoutFailure(e))
+    }
+  }
+}
+
+export function logoutRequest() {
+  return {
+    type: LOGOUT_REQUEST,
+  }
+}
+
+export function logoutSuccess(response) {
+  console.log('logoutSuccess', response)
+  return {
+    type: LOGOUT_SUCCESS,
+    payload: response,
+  }
+}
+
+export function logoutFailure(error) {
+  console.log('logoutFailure', error)
+  return {
+    type: LOGOUT_FAILURE,
     payload: error,
   }
 }
