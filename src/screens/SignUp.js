@@ -58,9 +58,11 @@ class Signup extends React.Component {
             <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true} onChangeText={(password) => this.setState({password})}/>
             <RkTextInput rkType='rounded' placeholder='Confirm Password' secureTextEntry={true} onChangeText={(passwordConfirm) => this.setState({passwordConfirm})}/>
           </View>
-          <RkButton rkType='large' style={styles.save} onPress={() => {
-            this.onPressSignup()
-          }}>SIGN UP</RkButton>
+          <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+            <RkButton rkType='large' style={styles.save} onPress={() => {
+              this.onPressSignup()
+            }}>SIGN UP</RkButton>
+          </View>
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Already have an account?</RkText>
@@ -100,7 +102,8 @@ let styles = RkStyleSheet.create(theme => ({
     justifyContent: 'space-between'
   },
   save: {
-    marginVertical: 20
+    marginVertical: 20,
+    backgroundColor: theme.colors.accent,
   },
   buttons: {
     flexDirection: 'row',

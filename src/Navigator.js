@@ -16,7 +16,6 @@ export const middleware = createReactNavigationReduxMiddleware(
 const addListener = createReduxBoundAddListener("root");
 
 import Feed from './screens/Feed'
-import Login from './screens/Login'
 import Splash from './screens/Splash'
 import Signup from './screens/Signup'
 import Login2 from './screens/Login2'
@@ -25,7 +24,6 @@ import Settings from './screens/Settings'
 
 export const Navigator = new StackNavigator({
   Feed: { screen: Feed },
-  Login: { screen: Login },
   Splash: { screen: Splash },
   Signup: { screen: Signup },
   Login2: { screen: Login2 },

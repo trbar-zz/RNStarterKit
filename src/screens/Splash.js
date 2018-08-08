@@ -11,16 +11,20 @@ import {
   RkTheme
 } from 'react-native-ui-kitten'
 import { connect } from 'react-redux';
-import ProgressBar from '../components/progressBar';
+import { ProgressBar } from '../components/progressBar';
 import {
   RNStarterKitTheme
 } from '../config/theme';
 import { NavigationActions } from 'react-navigation';
 import { scale, scaleModerate, scaleVertical } from '../utils/scale';
 
-let timeFrame = 500;
+let timeFrame = 1000;
 
 class Splash extends React.Component {
+
+  static navigationOptions = {
+    header: null,
+  };
 
   constructor(props) {
     super(props);
@@ -59,10 +63,14 @@ class Splash extends React.Component {
         <View>
           <Image style={[styles.image, {width}]} source={require('../assets/images/splashBack.png')}/>
           <View style={styles.text}>
-            <RkText rkType='light' style={styles.hero}>React Native</RkText>
-            <RkText rkType='header0'>RNStaterKit UI Kitten</RkText>
+            <RkText rkType='light' style={styles.hero}>RNStaterKit</RkText>
+            <RkText rkType='header0'>Auth Blog App</RkText>
           </View>
         </View>
+        <ProgressBar
+          color={RkTheme.current.colors.accent}
+          style={styles.progress}
+          progress={this.state.progress} width={scale(320)}/>
       </View>
     )
   }
@@ -82,10 +90,11 @@ let styles = StyleSheet.create({
   },
   image: {
     resizeMode: 'cover',
-    height: scaleVertical(430),
+    height: scaleVertical(450),
   },
   text: {
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 60
   },
   hero: {
     fontSize: 37,

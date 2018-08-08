@@ -44,7 +44,7 @@ class Login2 extends React.Component {
   }
 
   _renderImage(image) {
-    let contentHeight = scaleModerate(375, 1);
+    let contentHeight = scaleModerate(360, 1);
     let height = Dimensions.get('window').height - contentHeight;
     let width = Dimensions.get('window').width;
 
@@ -138,7 +138,8 @@ let styles = RkStyleSheet.create(theme => ({
     marginHorizontal: 14
   },
   save: {
-    marginVertical: 9
+    marginVertical: 9,
+    backgroundColor: theme.colors.accent
   },
   textRow: {
     justifyContent: 'center',
