@@ -23,7 +23,7 @@ export const LOGOUT_REQUEST = 'LOGOUT_REQUEST'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE'
 
-export function emailPasswordLogin(email, password) {
+export const emailPasswordLogin = (email, password) => {
   return async (dispatch) => {
     dispatch(emailPasswordLoginRequest())
     const loginUrl = AUTH_URL + 'login';
@@ -47,34 +47,33 @@ export function emailPasswordLogin(email, password) {
         dispatch(emailPasswordLoginFailure(response))
       }
       dispatch(emailPasswordLoginSuccess(respObj))
-    } catch (e) {
-      dispatch(emailPasswordLoginFailure(e))
+    } catch (error) {
+      dispatch(emailPasswordLoginFailure(error))
     }
   }
 }
 
-export function emailPasswordLoginRequest() {
+export const emailPasswordLoginRequest = () => {
   return {
     type: EMAIL_PASSWORD_LOGIN_REQUEST,
   }
 }
 
-export function emailPasswordLoginSuccess(response) {
-  console.log('emailPasswordLoginSuccess', response)
+export const emailPasswordLoginSuccess = (response) => {
   return {
     type: EMAIL_PASSWORD_LOGIN_SUCCESS,
     payload: response,
   }
 }
 
-export function emailPasswordLoginFailure(error) {
+export const emailPasswordLoginFailure = (error) => {
   return {
     type: EMAIL_PASSWORD_LOGIN_FAILURE,
     payload: error,
   }
 }
 
-export function facebookLoginSignup() {
+export const facebookLoginSignup = () => {
   return async (dispatch) => {
     dispatch(facebookLoginSignupRequest())
     const facebookLoginSignupUrl = AUTH_URL + 'signup'
@@ -97,28 +96,26 @@ export function facebookLoginSignup() {
         dispatch(facebookLoginSignupFailure(serverResponseObj))
       }
       dispatch(facebookLoginSignupSuccess(OAuthResponse, serverResponseObj))
-    } catch (e) {
-      dispatch(facebookLoginSignupFailure(e))
+    } catch (error) {
+      dispatch(facebookLoginSignupFailure(error))
     }
   }
 }
 
-export function facebookLoginSignupRequest() {
+export const facebookLoginSignupRequest = () => {
   return {
     type: FACEBOOK_LOGIN_SIGNUP_REQUEST,
   }
 }
 
-export function facebookLoginSignupSuccess(facebookParams, serverParams) {
-  console.log('facebookParams', facebookParams)
-  console.log('serverParams', serverParams)
+export const facebookLoginSignupSuccess = (facebookParams, serverParams) => {
   return {
     type: FACEBOOK_LOGIN_SIGNUP_SUCCESS,
     payload: { facebookParams, serverParams }
   }
 }
 
-export function facebookLoginSignupFailure(error) {
+export const facebookLoginSignupFailure = (error) => {
   return {
     type: FACEBOOK_LOGIN_SIGNUP_FAILURE,
     payload: error,
@@ -148,36 +145,33 @@ export const googleLoginSignup = () => {
         dispatch(googleLoginSignupFailure(serverResponseObj))
       }
       dispatch(googleLoginSignupSuccess(OAuthResponse, serverResponseObj))
-    } catch (e) {
-      dispatch(googleLoginSignupFailure(e))
+    } catch (error) {
+      dispatch(googleLoginSignupFailure(error))
     }
   }
 }
 
-export function googleLoginSignupRequest() {
+export const googleLoginSignupRequest = () => {
   return {
     type: GOOGLE_LOGIN_SIGNUP_REQUEST,
   }
 }
 
-export function googleLoginSignupSuccess(googleParams, serverParams) {
-  console.log('googleParams', googleParams)
-  console.log('serverParams', serverParams)
+export const googleLoginSignupSuccess = (googleParams, serverParams) => {
   return {
     type: GOOGLE_LOGIN_SIGNUP_SUCCESS,
     payload: { googleParams, serverParams }
   }
 }
 
-export function googleLoginSignupFailure(error) {
+export const googleLoginSignupFailure = (error) => {
   return {
     type: GOOGLE_LOGIN_SIGNUP_FAILURE,
     payload: error,
   }
 }
 
-export function emailPasswordSignup(email, password) {
-  console.log('emailPasswordSignup', email, password)
+export const emailPasswordSignup = (email, password) => {
   return async (dispatch) => {
     dispatch(emailPasswordSignupRequest())
     const loginUrl = AUTH_URL + 'signup';
@@ -201,35 +195,33 @@ export function emailPasswordSignup(email, password) {
         dispatch(emailPasswordSignupFailure(response))
       }
       dispatch(emailPasswordSignupSuccess(respObj))
-    } catch (e) {
-      dispatch(emailPasswordSignupFailure(e))
+    } catch (error) {
+      dispatch(emailPasswordSignupFailure(error))
     }
   }
 }
 
-export function emailPasswordSignupRequest() {
+export const emailPasswordSignupRequest = () => {
   return {
     type: EMAIL_PASSWORD_SIGNUP_REQUEST,
   }
 }
 
-export function emailPasswordSignupSuccess(response) {
-  console.log('emailPasswordSignupSuccess', response)
+export const emailPasswordSignupSuccess = (response) => {
   return {
     type: EMAIL_PASSWORD_SIGNUP_SUCCESS,
     payload: response,
   }
 }
 
-export function emailPasswordSignupFailure(error) {
+export const emailPasswordSignupFailure = (error) => {
   return {
     type: EMAIL_PASSWORD_SIGNUP_FAILURE,
     payload: error,
   }
 }
 
-export function logout() {
-  console.log('logout')
+export const logout = () => {
   return async (dispatch) => {
     dispatch(logoutRequest())
     const logoutUrl = AUTH_URL + 'user/logout';
@@ -242,32 +234,31 @@ export function logout() {
     try {
       const response = await fetch(logoutUrl, options);
       const respObj = await response.json();
+      console.log('logout response', respObj)
       if (response.status !== 200) {
         dispatch(logoutFailure(response))
       }
       dispatch(logoutSuccess(respObj))
-    } catch (e) {
-      dispatch(logoutFailure(e))
+    } catch (error) {
+      dispatch(logoutFailure(error))
     }
   }
 }
 
-export function logoutRequest() {
+export const logoutRequest = () => {
   return {
     type: LOGOUT_REQUEST,
   }
 }
 
-export function logoutSuccess(response) {
-  console.log('logoutSuccess', response)
+export const logoutSuccess = (response) => {
   return {
     type: LOGOUT_SUCCESS,
     payload: response,
   }
 }
 
-export function logoutFailure(error) {
-  console.log('logoutFailure', error)
+export const logoutFailure = (error) => {
   return {
     type: LOGOUT_FAILURE,
     payload: error,

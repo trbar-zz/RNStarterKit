@@ -31,18 +31,22 @@ class Feed extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.renderItem = this._renderItem.bind(this);
     this.state = {
-      data: data.getArticles('post')
+      data: null
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      data: data.getArticles('post')
+    })
   }
 
   _keyExtractor(post, index) {
     return post.id;
   }
 
-  _renderItem(info) {
+  renderItem = (info) => {
     return (
       <TouchableOpacity
         delayPressIn={70}

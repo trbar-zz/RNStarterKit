@@ -18,7 +18,7 @@ const addListener = createReduxBoundAddListener("root");
 import Feed from './screens/Feed'
 import Splash from './screens/Splash'
 import Signup from './screens/Signup'
-import Login2 from './screens/Login2'
+import Login from './screens/Login'
 import Article from './screens/Article'
 import Settings from './screens/Settings'
 
@@ -26,7 +26,7 @@ export const Navigator = new StackNavigator({
   Feed: { screen: Feed },
   Splash: { screen: Splash },
   Signup: { screen: Signup },
-  Login2: { screen: Login2 },
+  Login: { screen: Login },
   Article: { screen: Article },
   Settings: { screen: Settings }
 },{

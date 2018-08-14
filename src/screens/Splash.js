@@ -4,7 +4,6 @@ import {
   Image,
   View,
   Dimensions,
-  StatusBar
 } from 'react-native';
 import {
   RkText,
@@ -17,8 +16,9 @@ import {
 } from '../config/theme';
 import { NavigationActions } from 'react-navigation';
 import { scale, scaleModerate, scaleVertical } from '../utils/scale';
+import { getSessionToken } from '../store/auth/authActions';
 
-let timeFrame = 1000;
+const timeFrame = 1000
 
 class Splash extends React.Component {
 
@@ -34,15 +34,13 @@ class Splash extends React.Component {
   }
 
   componentDidMount() {
-    StatusBar.setHidden(true, 'none');
     RkTheme.setTheme(RNStarterKitTheme);
 
     this.timer = setInterval(() => {
       if (this.state.progress == 1) {
         clearInterval(this.timer);
         setTimeout(() => {
-          StatusBar.setHidden(false, 'slide');
-          this.props.navigation.navigate('Login2')
+          this.props.navigation.navigate('Login')
         }, timeFrame);
       } else {
         let random = Math.random() * 0.5;
@@ -79,7 +77,10 @@ class Splash extends React.Component {
 export default connect(
   (state) => ({
     auth: state.auth,
-  })
+  }),
+  {
+    getSessionToken
+  }
 )(Splash)
 
 let styles = StyleSheet.create({

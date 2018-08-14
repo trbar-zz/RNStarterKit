@@ -15,6 +15,7 @@ import {
 } from 'react-native-ui-kitten';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux'
+import { gql } from 'react-apollo'
 
 import {
   googleLoginSignup,
@@ -24,7 +25,7 @@ import {
 
 import {scale, scaleModerate, scaleVertical} from '../utils/scale';
 
-class Login2 extends React.Component {
+class Login extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -108,7 +109,7 @@ export default connect(
     facebookLoginSignup,
     emailPasswordLogin
   }
-)(Login2)
+)(Login)
 
 let styles = RkStyleSheet.create(theme => ({
   screen: {

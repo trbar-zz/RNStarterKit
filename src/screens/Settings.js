@@ -31,7 +31,7 @@ class Settings extends React.Component {
   }
 
   onPressLogout() {
-    this.props.navigation.navigate('Login2')
+    this.props.navigation.navigate('Login')
     this.props.logout()
   }
 

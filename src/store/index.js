@@ -3,7 +3,6 @@ import thunk from 'redux-thunk'
 import {
   createReactNavigationReduxMiddleware,
 } from 'react-navigation-redux-helpers';
-import device from './device'
 import auth from './auth/authReducer'
 import navigation from './navigation/navigationReducer'
 
@@ -13,7 +12,6 @@ import { middleware } from '../Navigator'
 
 const combinedReducer = combineReducers({
   navigation,
-  device,
   auth
 })
 

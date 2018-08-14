@@ -66,7 +66,7 @@ class Signup extends React.Component {
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Already have an account?</RkText>
-              <RkButton rkType='clear'  onPress={() => this.props.navigation.navigate('Login2')}>
+              <RkButton rkType='clear'  onPress={() => this.props.navigation.navigate('Login')}>
                 <RkText rkType='header6'> Sign in now </RkText>
               </RkButton>
             </View>
